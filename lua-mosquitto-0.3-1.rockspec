@@ -1,11 +1,11 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "lua-mosquitto"
-version = "0.2-2"
+version = "0.3-1"
 -- LuaDist source
 source = {
-  url = "git://github.com/LuaDist2/lua-mosquitto.git",
-  tag = "0.2-2"
+  url = "git://github.com/lz129/lua-mosquitto.git",
+  tag = "0.3-1"
 }
 -- Original source
 -- source = {
