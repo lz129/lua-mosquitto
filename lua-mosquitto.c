@@ -266,11 +266,11 @@ static int ctx_socks5_set(lua_State *L)
 {
 	ctx_t *ctx = ctx_check(L, 1);
 	const char *host = luaL_optstring(L, 2, NULL);
-	int port = luaL_optint(L, 3, 0);
+	lua_Integer port = luaL_optinteger(L, 3, 0);
 	const char *username = luaL_optstring(L, 4, NULL);
 	const char *password = luaL_optstring(L, 5, NULL);
 
-        rc = mosquitto_socks5_set(ctx->mosq, host, port, username, password);
+        int rc = mosquitto_socks5_set(ctx->mosq, host, port, username, password);
 	return mosq__pstatus(L, rc);
 }
 
