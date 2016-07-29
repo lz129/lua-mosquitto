@@ -266,7 +266,7 @@ static int ctx_socks5_set(lua_State *L)
 {
 	ctx_t *ctx = ctx_check(L, 1);
 	const char *host = luaL_optstring(L, 2, NULL);
-	const char *port = luaL_optstring(L, 3, NULL);
+	int port = luaL_optint(L, 3, 0);
 	const char *username = luaL_optstring(L, 4, NULL);
 	const char *password = luaL_optstring(L, 5, NULL);
 
