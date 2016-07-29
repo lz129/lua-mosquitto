@@ -262,6 +262,19 @@ static int ctx_login_set(lua_State *L)
 	return mosq__pstatus(L, rc);
 }
 
+static int ctx_socks5_set(lua_State *L)
+{
+	ctx_t *ctx = ctx_check(L, 1);
+	const char *host = luaL_optstring(L, 2, NULL);
+	const char *port = luaL_optstring(L, 3, NULL);
+	const char *username = luaL_optstring(L, 4, NULL);
+	const char *password = luaL_optstring(L, 5, NULL);
+
+        rc = mosquitto_socks5_set(ctx->mosq, host, port, username, password);
+	return mosq__pstatus(L, rc);
+}
+
+
 static int ctx_tls_set(lua_State *L)
 {
 	ctx_t *ctx = ctx_check(L, 1);
@@ -777,6 +790,7 @@ static const struct luaL_Reg ctx_M[] = {
 	{"will_set",		ctx_will_set},
 	{"will_clear",		ctx_will_clear},
 	{"login_set",		ctx_login_set},
+	{"socks5_set",		ctx_socks5_set},
 	{"tls_insecure_set",	ctx_tls_insecure_set},
 	{"tls_set",		ctx_tls_set},
 	{"tls_opts_set",	ctx_tls_opts_set},
